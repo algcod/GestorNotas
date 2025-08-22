@@ -1,0 +1,48 @@
+INICIO
+    // Inicializar variables
+    nota = 0
+    suma = 0
+    contador = 0
+    total_notas = 0
+    opcion = 0
+
+    MIENTRAS opcion != 3 HACER
+        IMPRIMIR "SISTEMA DE NOTAS ACADÉMICAS"
+        IMPRIMIR "1. Registrar nuevas notas"
+        IMPRIMIR "2. Calcular promedio de notas"
+        IMPRIMIR "Seleccione una opción: "
+        LEER opcion
+
+        SI opcion = 1 ENTONCES
+            // Pedir al usuario cuántas notas registrará
+            IMPRIMIR "¿Cuántas notas desea registrar?"
+            LEER total_notas
+            suma = 0
+            contador = 0
+
+            PARA i = 1 HASTA total_notas HACER
+                REPETIR
+                    IMPRIMIR "Ingrese la nota ", i, ":"
+                    LEER nota
+                    SI nota >= 0 Y nota <= 100 ENTONCES
+                        suma = suma + nota
+                        contador = contador + 1
+                    SINO
+                        IMPRIMIR "Nota inválida. Debe estar entre 0 y 100."
+                    FIN_SI
+                HASTA nota >= 0 Y nota <= 100
+            FIN_PARA
+
+        SINO SI opcion = 2 ENTONCES
+            // Calcular promedio
+            SI contador = 0 ENTONCES
+                IMPRIMIR "No hay notas registradas para calcular el promedio."
+            SINO
+                promedio = suma / contador
+                IMPRIMIR "El promedio general es: ", promedio
+            FIN_SI
+        SINO
+            IMPRIMIR "Opción no válida, intente de nuevo"
+        FIN_SI
+    FIN_MIENTRAS
+FIN
