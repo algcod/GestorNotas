@@ -18,31 +18,31 @@ INICIO
         IMPRIMIR "Seleccione una opcion:"
         LEER OPCION
 
-        SI OPCION = "1" ENTONCES
+        SI OPCION = 1 ENTONCES
             Agregar nuevo curso
-        SINO SI OPCION = "2" ENTONCES
+        SINO SI OPCION = 2 ENTONCES
             Ver todos los cursos
-        SINO SI OPCION = "3" ENTONCES
+        SINO SI OPCION = 3 ENTONCES
             Actualizar nota
-        SINO SI OPCION = "4" ENTONCES
+        SINO SI OPCION = 4 ENTONCES
             Eliminar curso
-        SINO SI OPCION = "5" ENTONCES
+        SINO SI OPCION = 5 ENTONCES
             Calcular promedio general
-        SINO SI OPCION = "6" ENTONCES
+        SINO SI OPCION = 6 ENTONCES
             Cursos aprobados y reprobados
-        SINO SI OPCION = "7" ENTONCES
+        SINO SI OPCION = 7 ENTONCES
             Buscar curso (por coincidencia)
-        SINO SI OPCION = "8" ENTONCES
+        SINO SI OPCION = 8 ENTONCES
             Ordenar por nombre
-        SINO SI OPCION = "9" ENTONCES
+        SINO SI OPCION = 9 ENTONCES
             Ordenar por nota
-        SINO SI OPCION = "10" ENTONCES
+        SINO SI OPCION = 10 ENTONCES
             Buscar curso
-        SINO SI OPCION = "11" ENTONCES
+        SINO SI OPCION = 11 ENTONCES
             Cola de solicitudes de revision
-        SINO SI OPCION = "12" ENTONCES
+        SINO SI OPCION = 12 ENTONCES
             Historial de cambios
-        SINO SI OPCION = "13" ENTONCES
+        SINO SI OPCION = 13 ENTONCES
             IMPRIMIR "Gracias por usar el Gestor de Notas Academicas"
         SINO
             IMPRIMIR "Opcion invalida, intente de nuevo"
