@@ -4,7 +4,7 @@ cursos = []
 def registrar_curso():
     #funcion para agregar un curso nuevo, pide nombre, no y lo valida
 
-    print("\n--- 1. Agregar Nuevo Curso ---")
+    print("\n1. AGREGAR NUEVO CURSO")
 
     #Validacion del nombre del curso
     while True:
@@ -31,6 +31,22 @@ def registrar_curso():
     cursos.append(nuevo_curso)
 
     print(f"\nCurso '{nombre}' agreagado con exito!")
+
+def mostrar_curso():
+    #funcion para mostrar todos los cursos registrados
+
+    print("\n2. VER TODOS LOS CURSOS")
+
+    if not cursos:
+        print("Aun no hay cursos registrados")
+        return
+    print(f"{'Curso':<25} | {'Nota'}")
+    print("-" * 35)
+
+    for curso in cursos:
+        nombre = curso['nombre']
+        nota = curso['nota']
+        print(f"{nombre:<25} | {nota}")
     
 #Menu
 while True:
@@ -55,6 +71,9 @@ while True:
         registrar_curso() #Llamamos funcion para agregar cursos nuevos
 
     elif opcion == '2':
+        mostrar_curso() #Llamamos funcion para mostrar los cursos
+
+    elif opcion == '3':
         print("Trabajando...")
 
     elif opcion == '13':
