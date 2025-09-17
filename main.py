@@ -2,7 +2,7 @@
 cursos = []
 
 def registrar_curso():
-    #funcion para agregar un curso nuevo, pide nombre, no y lo valida
+    #funcion para agregar un curso nuevo, pide nombre, nota y lo valida
 
     print("\n1. AGREGAR NUEVO CURSO")
 
@@ -47,6 +47,41 @@ def mostrar_curso():
         nombre = curso['nombre']
         nota = curso['nota']
         print(f"{nombre:<25} | {nota}")
+
+def actualizar_nota():
+    #funcion para buscar un curso y editar la nota
+
+    print("\n3. ACTUALIZAR NOTA")
+
+    if not cursos:
+        print("Aún no hay cursos para actualizar")
+        return
+
+    nombre_buscar = input("Ingrese el nombre del curso que desea actualizar: ")
+    
+    curso_encontrado = None
+    for curso in cursos:
+        if curso['nombre'].lower() == nombre_buscar.lower():
+            curso_encontrado = curso
+            break
+    
+    if curso_encontrado:
+        print(f"Nota actual de '{curso_encontrado['nombre']}': {curso_encontrado['nota']}")
+        while True:
+            try:
+                nueva_nota_str = input("Ingrese la nueva nota (0-100): ")
+                nueva_nota = float(nueva_nota_str)
+                if 0 <= nueva_nota <= 100:
+                    # Actualizamos la nota del curso que buscamos
+                    curso_encontrado['nota'] = nueva_nota
+                    print("\n¡Nota actualizada correctamente!")
+                    break
+                else:
+                    print("Error: La nota debe estar entre 0 y 100.")
+            except ValueError:
+                print("Error: Por favor, ingrese un valor numérico.")
+    else:
+        print(f"Error: No se encontró un curso con el nombre '{nombre_buscar}'")
     
 #Menu
 while True:
@@ -74,7 +109,10 @@ while True:
         mostrar_curso() #Llamamos funcion para mostrar los cursos
 
     elif opcion == '3':
-        print("Trabajando...")
+        actualizar_nota() #Llamamos funcion para edicion de nota
+
+    elif opcion == '4':
+        print("Trabajando...")  
 
     elif opcion == '13':
         print("\nGracias por usar el Gestor de Notas Academicas")
