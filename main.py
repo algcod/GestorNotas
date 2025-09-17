@@ -79,10 +79,41 @@ def actualizar_nota():
                 else:
                     print("Error: La nota debe estar entre 0 y 100.")
             except ValueError:
-                print("Error: Por favor, ingrese un valor numérico.")
+                print("Error: Por favor, ingrese un valor numérico")
     else:
         print(f"Error: No se encontró un curso con el nombre '{nombre_buscar}'")
+
+def eliminar_curso():
+    #funcion para buscar un curso y eliminarlo de nuestro gestor
+ 
+    print("\n4. ELIMINAR CURSO")
+    if not cursos:
+        print("No hay cursos para eliminar")
+        return
+
+    nombre_buscar = input("Ingrese el nombre del curso que desea eliminar: ")
     
+    indice_encontrado = -1
+    for i, curso in enumerate(cursos):
+        if curso['nombre'].lower() == nombre_buscar.lower():
+            indice_encontrado = i
+            break
+            
+    if indice_encontrado != -1:
+        curso_eliminar = cursos[indice_encontrado]
+        print(f"Curso encontrado: {curso_eliminar['nombre']} - Nota: {curso_eliminar['nota']}")
+        
+        confirmacion = input("¿Está seguro que desea eliminarlo? (s/n): ")
+        
+        if confirmacion.lower() == 's':
+            # Eliminamos el curso de la lista usando su índice
+            cursos.pop(indice_encontrado)
+            print("Curso eliminado correctamente")
+        else:
+            print("Operación cancelada")
+    else:
+        print(f"Error: No se encontró un curso con el nombre '{nombre_buscar}'")
+
 #Menu
 while True:
     print("\nSISTEMA DE GESTION ACADEMICA")
@@ -112,6 +143,9 @@ while True:
         actualizar_nota() #Llamamos funcion para edicion de nota
 
     elif opcion == '4':
+        eliminar_curso() #Llamamos funcion para eliminar cursos
+
+    elif opcion == '5':
         print("Trabajando...")  
 
     elif opcion == '13':
