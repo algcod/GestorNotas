@@ -114,6 +114,24 @@ def eliminar_curso():
     else:
         print(f"Error: No se encontró un curso con el nombre '{nombre_buscar}'")
 
+def calcular_promedio():
+    #funcion para calcular el promedio de las notas de los cursos ingresados
+
+    print("\n5. CALCULAR PROMEDIO GENERAL")
+    if not cursos:
+        print("No hay notas para calcular un promedio")
+        return
+    
+    suma_notas = 0
+    for curso in cursos:
+        suma_notas += curso['nota']
+
+    total_cursos = len(cursos)
+
+    promedio = suma_notas / total_cursos
+
+    print(f"El promedio general de los {total_cursos} cursos es: {promedio:.2f}")
+
 #Menu
 while True:
     print("\nSISTEMA DE GESTION ACADEMICA")
@@ -123,10 +141,10 @@ while True:
     print("4. Eliminar curso")
     print("5. Calcular promedio general")
     print("6. Cursos aprobados y reprobados")
-    print("7. Buscar curso (por coincidencia)")
+    print("7. Buscar curso por nombre (Busqueda Lineal)")
     print("8. Ordenar por nombre")
     print("9. Ordenar por nota")
-    print("10. Buscar curso")
+    print("10. Buscar curso por nombre (Busqueda Binaria)")
     print("11. Cola de solicitudes de revision")
     print("12. Historial de cambios")
     print("13. Salir del sistema")
@@ -146,6 +164,9 @@ while True:
         eliminar_curso() #Llamamos funcion para eliminar cursos
 
     elif opcion == '5':
+        calcular_promedio() #Llamamos funcion para calcular promedio de los cursos
+
+    elif opcion == '6':
         print("Trabajando...")  
 
     elif opcion == '13':
