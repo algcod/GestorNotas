@@ -132,6 +132,26 @@ def calcular_promedio():
 
     print(f"El promedio general de los {total_cursos} cursos es: {promedio:.2f}")
 
+def contar_cursos():
+    #funcion para contar cursos aprobados y reprobados
+
+    print("\n6. CUROS APROBADOS Y REPROBADOS")
+    if not cursos:
+        print("No hay cursos registrados")
+        return
+    aprobados = 0
+    reprobados = 0
+
+    for curso in cursos:
+        if curso['nota'] > 60:
+            aprobados += 1
+        else:
+            reprobados += 1
+    
+    print(f"Total de cursos: {len(cursos)}")
+    print(f"Cursos aprobados: {aprobados}")
+    print(f"Cursos reprobados: {reprobados}")
+
 #Menu
 while True:
     print("\nSISTEMA DE GESTION ACADEMICA")
@@ -167,6 +187,9 @@ while True:
         calcular_promedio() #Llamamos funcion para calcular promedio de los cursos
 
     elif opcion == '6':
+        contar_cursos() #Llamamos funcion para contar cursos aprobados y reprobados  
+
+    elif opcion == '7':
         print("Trabajando...")  
 
     elif opcion == '13':
