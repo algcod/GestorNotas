@@ -152,6 +152,32 @@ def contar_cursos():
     print(f"Cursos aprobados: {aprobados}")
     print(f"Cursos reprobados: {reprobados}")
 
+def buscar_curso_lineal():
+    #funcion para buscar cursos usando busquda lineal
+
+    print("\n7. BUSCAR CURSO POR NOMBRE (BUSQUEA LINEAL)")
+    if not cursos:
+        print("No hay cursos registados")
+        return
+    
+    nombre_buscar = input("Ingrese el nombre completo del curso que desea buscar: ")
+
+    curso_encontrado = None
+    for curso in cursos:
+        if nombre_buscar.lower() == curso['nombre'].lower():
+            curso_encontrado = curso
+            break
+    
+    if not curso_encontrado:
+        print(f"No se encontro un curso con el nombre '{nombre_buscar}'")
+    else:
+        print("\nCurso Encontrado")
+        print(f"{'Curso':<25} | {'Nota'}")
+        print("-" * 35)
+        nombre = curso_encontrado['nombre']
+        nota = curso_encontrado['nota']
+        print(f"{nombre:<25} | {nota}")
+
 #Menu
 while True:
     print("\nSISTEMA DE GESTION ACADEMICA")
@@ -190,7 +216,10 @@ while True:
         contar_cursos() #Llamamos funcion para contar cursos aprobados y reprobados  
 
     elif opcion == '7':
-        print("Trabajando...")  
+        buscar_curso_lineal() #Llamamos funcion para buscar cursos usando la busqueda lineal
+
+    elif opcion == '8':
+        print("Trabajando...")
 
     elif opcion == '13':
         print("\nGracias por usar el Gestor de Notas Academicas")
