@@ -49,3 +49,11 @@ Salida
   13. Salir del sistema
 -------------------------------------------------------
 Ingrese una opción (1 - 13):
+```
+# Detalles de las funciones agregadas
+El programa usa un diseño modular simple.
+- Se utiliza una única lista global "cursos".
+- Cada funcionalidad del menú está en su propia función y llamada desde el menú principal utilizando un bucle que repite hasta que seleccionemos salir del programa.
+- Se utilizan diccionarios para almacenar en "cursos" cada uno junto a su nota, así al buscar uno por nombre como se solicita en unos puntos del menú se ubiquen y junto al nombre del curso, la nota correspondiente.
+- Se utiliza .lower() en ciertas funciones para no importando la introducción de texto de parte del usuario siga leyendo los datos solicitados.
+- Se utiliza try-except, ValueError para evitar errores al no ingresar una entrada no válida.
