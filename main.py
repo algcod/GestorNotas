@@ -32,18 +32,15 @@ def registrar_curso():
 
     print(f"\nCurso '{nombre}' agreagado con exito!")
 
-def mostrar_curso():
+def mostrar_cursos(lista_a_mostrar):
     #funcion para mostrar todos los cursos registrados
-
-    print("\n2. VER TODOS LOS CURSOS")
-
-    if not cursos:
-        print("Aun no hay cursos registrados")
+    print("\n--- LISTA DE CURSOS ---")
+    if not lista_a_mostrar:
+        print("Aun no hay cursos para mostrar.")
         return
     print(f"{'Curso':<25} | {'Nota'}")
     print("-" * 35)
-
-    for curso in cursos:
+    for curso in lista_a_mostrar:
         nombre = curso['nombre']
         nota = curso['nota']
         print(f"{nombre:<25} | {nota}")
@@ -143,7 +140,7 @@ def contar_cursos():
     reprobados = 0
 
     for curso in cursos:
-        if curso['nota'] > 60:
+        if curso['nota'] >= 60:
             aprobados += 1
         else:
             reprobados += 1
@@ -155,7 +152,7 @@ def contar_cursos():
 def buscar_curso_lineal():
     #funcion para buscar cursos usando busquda lineal
 
-    print("\n7. BUSCAR CURSO POR NOMBRE (BUSQUEA LINEAL)")
+    print("\n7. BUSCAR CURSO POR NOMBRE (BUSQUEDA LINEAL)")
     if not cursos:
         print("No hay cursos registados")
         return
@@ -172,11 +169,42 @@ def buscar_curso_lineal():
         print(f"No se encontro un curso con el nombre '{nombre_buscar}'")
     else:
         print("\nCurso Encontrado")
-        print(f"{'Curso':<25} | {'Nota'}")
-        print("-" * 35)
-        nombre = curso_encontrado['nombre']
-        nota = curso_encontrado['nota']
-        print(f"{nombre:<25} | {nota}")
+        mostrar_cursos([curso_encontrado])
+
+def ordenar_por_nombre():
+    #funcion para ordenar los cursos por nombre utilizando el metodo de insercion
+    print("\n8. ORDENAR CURSOS POR NOMBRE (A-Z)")
+    if not cursos:
+        print("No hay cursos para ordenar")
+        return
+    copia_cursos = cursos.copy()
+    n = len(copia_cursos)
+    for i in range(1, n):
+        clave = copia_cursos[i]
+        j = i - 1
+        while j >= 0 and clave['nombre'].lower() < copia_cursos[j]['nombre'].lower():
+            copia_cursos[j + 1] = copia_cursos[j]
+            j -= 1
+        copia_cursos[j + 1] = clave
+    mostrar_cursos(copia_cursos)
+
+def ordenar_por_nota():
+    #funcion para ordenar los cursos por notas utilizando el metodo burbuja
+
+    print("\n9. ORDENAR CURSOS POR NOTA (Mayor a Menor)")
+    if not cursos:
+        print("No hay cursos para ordenar")
+        return
+    
+    copia_cursos = cursos.copy()
+    n = len(copia_cursos)
+
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if copia_cursos[j]['nota'] < copia_cursos[j + 1]['nota']:
+                copia_cursos[j], copia_cursos[j + 1] = copia_cursos[j + 1], copia_cursos[j]
+    
+    mostrar_cursos(copia_cursos)
 
 #Menu
 while True:
@@ -201,7 +229,7 @@ while True:
         registrar_curso() #Llamamos funcion para agregar cursos nuevos
 
     elif opcion == '2':
-        mostrar_curso() #Llamamos funcion para mostrar los cursos
+        mostrar_cursos(cursos) #Llamamos funcion para mostrar los cursos
 
     elif opcion == '3':
         actualizar_nota() #Llamamos funcion para edicion de nota
@@ -213,14 +241,20 @@ while True:
         calcular_promedio() #Llamamos funcion para calcular promedio de los cursos
 
     elif opcion == '6':
-        contar_cursos() #Llamamos funcion para contar cursos aprobados y reprobados  
+        contar_cursos() #Llamamos funcion para contar cursos aprobados y reprobados 
 
     elif opcion == '7':
         buscar_curso_lineal() #Llamamos funcion para buscar cursos usando la busqueda lineal
 
     elif opcion == '8':
-        print("Trabajando...")
+        ordenar_por_nombre() #Llamamos funcion para ordenar los cursos por nombre utilizando el metodo de insercion
 
+    elif opcion == '9':
+        ordenar_por_nota() #Llamamos funcion para ordenar los cursos por nota por el metodo de burbuja
+
+    elif opcion == '10':
+        print("Trabajando...")
+        
     elif opcion == '13':
         print("\nGracias por usar el Gestor de Notas Academicas")
         break
