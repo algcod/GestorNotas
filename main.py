@@ -287,6 +287,9 @@ while True:
         ordenar_por_nota() #Llamamos funcion para ordenar los cursos por nota por el metodo de burbuja
 
     elif opcion == '10':
+        buscar_curso_binaria() #Llamamos funcion para buscar cursos por su nombre mediante la busqueda binaria
+    
+    elif opcion == '11':
         print("Trabajando...")
         
     elif opcion == '13':
