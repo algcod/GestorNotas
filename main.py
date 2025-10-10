@@ -206,6 +206,40 @@ def ordenar_por_nota():
     
     mostrar_cursos(copia_cursos)
 
+def buscar_curso_binaria():
+    #Funcion para buscar curos utilizando la busqueda binaria
+
+    print("\n10. BUSCAR CURSO POR NOMBRE")
+    if not cursos:
+        print("No hay cursos en los cuales buscar")
+        return
+    
+    #Crear y ordenar por nombre una copia de la lista
+    lista_ordenada = sorted(cursos, key=lambda curso: curso['nombre'].lower())
+
+    nombre_buscar = input("Ingrese el nombre completo del curso que necesita buscar: ")
+
+    curso_encontrado = None
+    bajo = 0
+    alto = len(lista_ordenada) - 1
+
+    while bajo <= alto:
+        medio = (alto + bajo) // 2
+        nombre_medio = lista_ordenada[medio]['nombre'].lower()
+        
+        if nombre_medio < nombre_buscar.lower():
+            bajo = medio + 1
+        elif nombre_medio > nombre_buscar.lower():
+            alto = medio - 1
+        else:
+            curso_encontrado = lista_ordenada[medio]
+            break
+    if not curso_encontrado:
+        print(f"No se encontro un curso con el nombre '{nombre_buscar}'")
+    else:
+        print("\nCurso encontrado!")
+        mostrar_cursos([curso_encontrado])
+
 #Menu
 while True:
     print("\nSISTEMA DE GESTION ACADEMICA")
