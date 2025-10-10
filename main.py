@@ -240,6 +240,12 @@ def buscar_curso_binaria():
         print("\nCurso encontrado!")
         mostrar_cursos([curso_encontrado])
 
+def solicitudes_revision():
+    #funcion para crear solicitudes para revision de cursos
+
+    print("\n11. SOLICITUDES DE REVISION")
+    
+
 #Menu
 while True:
     print("\nSISTEMA DE GESTION ACADEMICA")
