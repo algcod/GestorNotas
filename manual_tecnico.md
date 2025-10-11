@@ -27,3 +27,4 @@ La lista se utiliza como contenedor principal, ya que al ser dinámica nos permi
 Se utilizan diccionarios en cada elemento de la lista para así ser fácilmente accesible a cada clave (nombre, nota) y también tiene la ventaja de ser auto descriptivo y fácilmente también se pueden añadir campos nuevos con solo agregar una nueva clave al diccionario.
 
 # 5. Algoritmos Implementados
+Busqueda lineal
