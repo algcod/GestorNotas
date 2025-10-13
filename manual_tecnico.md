@@ -33,4 +33,10 @@ La lista se utiliza como contenedor principal, ya que al ser dinámica nos permi
 Se utilizan diccionarios en cada elemento de la lista para así ser fácilmente accesible a cada clave (nombre, nota) y también tiene la ventaja de ser auto descriptivo y fácilmente también se pueden añadir campos nuevos con solo agregar una nueva clave al diccionario.
 
 # 7. Algoritmos Implementados
-Busqueda lineal
+Busqueda lineal: Se utiliza en las funciones de búsqueda por nombre exacto (opción 7), actualización (opción 3) y eliminación (opción 4). Este algoritmo itera secuencialmente sobre el diccionario de {cursos} desde el indice 0 hasta el último, también utilizando (.lower()) para que sea insensible a mayúsculas y minúsculas.
+
+Busqueda binaria: Utilizada en la opción 10, busca cursos por nombre, requiere que la lista este ordenada, utilizando la función (sorted()). Su eficiencia radica en que va dividiendo el espacio de búsqueda a la mitad en cada iteración, esto resulta en una complejidad de O(log n), siendo significativamente más rápida que la búsqueda lineal.
+
+Ordenamiento Burbuja: Implementado en la función 9, ordena los cursos según su nota en orden descendente. Utiliza una copia del diccionario principal para no alterar su registro original.
+
+Ordenamiento por Inserción: Utilizada en la función 8, ordena los cursos alfabéticamente y también opera sobre una copia del diccionario original. Su lógica se basa en construir una sublista ordenada e inserta secuencialmente los elementos restantes en su posición correcta.
