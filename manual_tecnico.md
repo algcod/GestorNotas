@@ -19,7 +19,21 @@ Un bucle While True al final de archivo actúa como motor de la aplicación, ya 
 
 
 # 5. Descripcion de Funciones
+    registrar_curso()
+Esta función es responsable de la entrada de nuevos datos (curso, nota), garantiza una validación de las notas mediante el bloque try-except ValueError
+Flujo:
++ Solicita el nombre del curso en un bucle while que no termina hasta que ingrese un valor no vacío.
++ Solicida luego la nota del curso también en un bucle while.
++ Luego en un bloque try convierte el valor ingresado de "nota" a un float, y si falla (el usuario ingresa un valor no numérico) toma la excepción ValueError y vuelve a pedir un valor nuevo.
++ Al hacer la verificación se crea un diccionario y se agrega a la lista "cursos" con .append().
 
+    eliminar_curso()
+Esta función combina la búsqueda lineal con una operación segura de eliminación
++ Solicita el nombre del curso que necesitamos eliminar.
+Utiliza la función enumerate() en un bucle for para encontrar el indice como el diccionario de cada elemento.
++ Al encontrar una coincidencia, guarda el indice "i" y termina el bucle.
++ Pide confirmación para la eliminación del curso (s/n).
++ Al confirmar utiliza el método cursos.pop(i) para eliminar el elemento de la lista por su posición.
 
 # 6. Estructura de Datos
 La estructura de datos utilizada es una Lista de Diccionarios, así:
