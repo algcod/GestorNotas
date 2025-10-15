@@ -1,6 +1,9 @@
 #Lista principal para almacenar los cursos
 cursos = []
 
+#Copia de lista principal utilizada para las soicitudes de revision
+cola_revision = []
+
 def registrar_curso():
     #funcion para agregar un curso nuevo, pide nombre, nota y lo valida
 
@@ -243,8 +246,32 @@ def buscar_curso_binaria():
 def solicitudes_revision():
     #funcion para crear solicitudes para revision de cursos
 
-    print("\n11. SOLICITUDES DE REVISION")
+    while True:
+        print("\n11. SOLICITUDES DE REVISION")
+        print("1. Agregar solicitud para revision")
+        print("2. Procesar siguientes solicitud")
+        print("3. Ver solicitudes pendientes")
+        print("4. Volver al menu principal")
+
+        opcion_cola = input("Seleccione luna opcion de la cola: ")
+
+        if opcion_cola == '1':
+            nombre_curso = input("Ingrese el nombre del curso para revision: ")
+            if nombre_curso.strip():
+                cola_revision.append(nombre_curso)
+                print(f"Solicitud para '{nombre_curso}' agregada a la cola")
+            else:
+                print("El nombre del curso no puede estar vacio")
+        
+        elif opcion_cola == '2':
+            if not cola_revision:
+                print("NO hay solicitudes de revision pendientes")
+            else:
+                curso_procesado = cola_revision.pop(0)
+                print(f"Procesando solicitud de revision par: '{curso_procesado}'")
+                print("Solicitud procesada y eliminada de la cola")
     
+
 
 #Menu
 while True:
@@ -296,6 +323,9 @@ while True:
         buscar_curso_binaria() #Llamamos funcion para buscar cursos por su nombre mediante la busqueda binaria
     
     elif opcion == '11':
+        solicitudes_revision() #Llamamos funcion para hacer las solicitudes de revision de cursos
+
+    elif opcion == '12':
         print("Trabajando...")
         
     elif opcion == '13':
