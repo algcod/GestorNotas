@@ -4,6 +4,9 @@ cursos = []
 #Copia de lista principal utilizada para las soicitudes de revision
 cola_revision = []
 
+#Lista para guardar el historial de cambios
+lista_historial = []
+
 def registrar_curso():
     #funcion para agregar un curso nuevo, pide nombre, nota y lo valida
 
@@ -33,7 +36,9 @@ def registrar_curso():
     nuevo_curso = {'nombre': nombre, 'nota': nota}
     cursos.append(nuevo_curso)
 
-    print(f"\nCurso '{nombre}' agreagado con exito!")
+    lista_historial.append(f"Se registro el curso '{nombre} con nota {nota}")
+
+    print(f"\nCurso '{nombre}' agregado con exito!")
 
 def mostrar_cursos(lista_a_mostrar):
     #funcion para mostrar todos los cursos registrados
@@ -73,7 +78,11 @@ def actualizar_nota():
                 nueva_nota = float(nueva_nota_str)
                 if 0 <= nueva_nota <= 100:
                     # Actualizamos la nota del curso que buscamos
+                    nota_anterior = curso_encontrado['nota']
                     curso_encontrado['nota'] = nueva_nota
+
+                    lista_historial.append(f"Se actualizó '{curso_encontrado['nombre']}': nota anterior {nota_anterior}, nueva nota {nueva_nota}.")
+
                     print("\n¡Nota actualizada correctamente!")
                     break
                 else:
@@ -106,8 +115,12 @@ def eliminar_curso():
         confirmacion = input("¿Está seguro que desea eliminarlo? (s/n): ")
         
         if confirmacion.lower() == 's':
+            curso_eliminado = cursos[indice_encontrado]
             # Eliminamos el curso de la lista usando su índice
             cursos.pop(indice_encontrado)
+
+            lista_historial.append(f"Se eliminó el curso '{curso_eliminado['nombre']}' (nota: {curso_eliminado['nota']}).")
+
             print("Curso eliminado correctamente")
         else:
             print("Operación cancelada")
@@ -284,6 +297,18 @@ def solicitudes_revision():
         else:
             print("Opcion no valida, intente de nuevo")
 
+def historial_cambios():
+    #funcion utilizada para mostrar el historial de cambios (LIFO)
+    print("\n 12. HISTORIAL DE CAMBIOS")
+    if not lista_historial:
+        print("No hay cambios registrados")
+        return
+    
+    print("MOstrando cambios del mas reciente al mas antiguo")
+
+    for cambio in reversed(lista_historial):
+        print(f"- {cambio}")
+
 #Menu
 while True:
     print("\nSISTEMA DE GESTION ACADEMICA")
@@ -337,7 +362,7 @@ while True:
         solicitudes_revision() #Llamamos funcion para hacer las solicitudes de revision de cursos
 
     elif opcion == '12':
-        print("Trabajando...")
+        historial_cambios() #Llamamos funcion para mostrar los cambios realizados en el gestor de notas
         
     elif opcion == '13':
         print("\nGracias por usar el Gestor de Notas Academicas")
