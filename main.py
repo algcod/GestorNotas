@@ -270,8 +270,19 @@ def solicitudes_revision():
                 curso_procesado = cola_revision.pop(0)
                 print(f"Procesando solicitud de revision par: '{curso_procesado}'")
                 print("Solicitud procesada y eliminada de la cola")
-    
 
+        elif opcion_cola == '3':
+            if not cola_revision:
+                ("La cola de revision esta vacia")
+            else:
+                print("\n Solicitudes Pendientes ")
+                for i, curso in enumerate(cola_revision):
+                    print(f"{i + 1}. {curso}")
+
+        elif opcion_cola == '4':
+            break
+        else:
+            print("Opcion no valida, intente de nuevo")
 
 #Menu
 while True:
