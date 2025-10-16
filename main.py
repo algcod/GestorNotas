@@ -253,7 +253,7 @@ def solicitudes_revision():
         print("3. Ver solicitudes pendientes")
         print("4. Volver al menu principal")
 
-        opcion_cola = input("Seleccione luna opcion de la cola: ")
+        opcion_cola = input("Seleccione una opcion de la cola: ")
 
         if opcion_cola == '1':
             nombre_curso = input("Ingrese el nombre del curso para revision: ")
@@ -265,17 +265,17 @@ def solicitudes_revision():
         
         elif opcion_cola == '2':
             if not cola_revision:
-                print("NO hay solicitudes de revision pendientes")
+                print("No hay solicitudes de revision pendientes")
             else:
                 curso_procesado = cola_revision.pop(0)
-                print(f"Procesando solicitud de revision par: '{curso_procesado}'")
+                print(f"\nProcesando solicitud de revision para: '{curso_procesado}'")
                 print("Solicitud procesada y eliminada de la cola")
 
         elif opcion_cola == '3':
             if not cola_revision:
-                ("La cola de revision esta vacia")
+                print("\nLa cola de revision esta vacia")
             else:
-                print("\n Solicitudes Pendientes ")
+                print("\nSolicitudes Pendientes ")
                 for i, curso in enumerate(cola_revision):
                     print(f"{i + 1}. {curso}")
 
