@@ -27,11 +27,13 @@ Flujo:
 + Luego en un bloque try convierte el valor ingresado de "nota" a un float, y si falla (el usuario ingresa un valor no numérico) toma la excepción ValueError y vuelve a pedir un valor nuevo.
 + Al hacer la verificación se crea un diccionario y se agrega a la lista "cursos" con .append().
 
+#
     mostrar_curso()
-Esta función es utilizada pra mostrar un listado de los cursos ya ingresados anteriormente (nombre, nota)
+Esta función es utilizada para mostrar un listado de los cursos ya ingresados anteriormente (nombre, nota)
 + Utilizamos un if not para mostrar un mensaje si no hay ningún curso ingresado.
 + Y un bucle for en el que se muestra el nombre y la nota de cada diccionario de la lista "cursos" y finaliza con el último elemento.
 
+#
     eliminar_curso()
 Esta función combina la búsqueda lineal con una operación segura de eliminación
 + Solicita el nombre del curso que necesitamos eliminar.
