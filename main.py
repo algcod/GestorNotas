@@ -18,7 +18,7 @@ def registrar_curso():
         if nombre.strip():
             break
         else:
-            print("Error: El nombre del curso no puede estar vacio.")
+            print("Error: El nombre del curso no puede estar vacío.")
 
     #Validacion de la nota del curso a ingresar
     while True:
@@ -30,21 +30,21 @@ def registrar_curso():
             else:
                 print("Error: La nota debe estar entre 0 y 100.")
         except ValueError:
-            print("Error: Ingrese un valor numerico.")
+            print("Error: Ingrese un valor numérico.")
 
     #Guardar el curso en nuestra lista
     nuevo_curso = {'nombre': nombre, 'nota': nota}
     cursos.append(nuevo_curso)
 
-    lista_historial.append(f"Se registro el curso '{nombre} con nota {nota}")
+    lista_historial.append(f"Se registro el curso '{nombre}' con nota {nota}")
 
-    print(f"\nCurso '{nombre}' agregado con exito!")
+    print(f"\nCurso '{nombre}' agregado con éxito!")
 
 def mostrar_cursos(lista_a_mostrar):
     #funcion para mostrar todos los cursos registrados
     print("\n--- LISTA DE CURSOS ---")
     if not lista_a_mostrar:
-        print("Aun no hay cursos para mostrar.")
+        print("Aún no hay cursos para mostrar.")
         return
     print(f"{'Curso':<25} | {'Nota'}")
     print("-" * 35)
@@ -59,7 +59,7 @@ def actualizar_nota():
     print("\n3. ACTUALIZAR NOTA")
 
     if not cursos:
-        print("Aún no hay cursos para actualizar")
+        print("Aún no hay cursos para actualizar.")
         return
 
     nombre_buscar = input("Ingrese el nombre del curso que desea actualizar: ")
@@ -88,16 +88,16 @@ def actualizar_nota():
                 else:
                     print("Error: La nota debe estar entre 0 y 100.")
             except ValueError:
-                print("Error: Por favor, ingrese un valor numérico")
+                print("Error: Por favor, ingrese un valor numérico.")
     else:
-        print(f"Error: No se encontró un curso con el nombre '{nombre_buscar}'")
+        print(f"Error: No se encontró un curso con el nombre '{nombre_buscar}'.")
 
 def eliminar_curso():
     #funcion para buscar un curso y eliminarlo de nuestro gestor
  
     print("\n4. ELIMINAR CURSO")
     if not cursos:
-        print("No hay cursos para eliminar")
+        print("No hay cursos para eliminar.")
         return
 
     nombre_buscar = input("Ingrese el nombre del curso que desea eliminar: ")
@@ -121,18 +121,18 @@ def eliminar_curso():
 
             lista_historial.append(f"Se eliminó el curso '{curso_eliminado['nombre']}' (nota: {curso_eliminado['nota']}).")
 
-            print("Curso eliminado correctamente")
+            print("Curso eliminado correctamente.")
         else:
-            print("Operación cancelada")
+            print("Operación cancelada.")
     else:
-        print(f"Error: No se encontró un curso con el nombre '{nombre_buscar}'")
+        print(f"Error: No se encontró un curso con el nombre '{nombre_buscar}'.")
 
 def calcular_promedio():
     #funcion para calcular el promedio de las notas de los cursos ingresados
 
     print("\n5. CALCULAR PROMEDIO GENERAL")
     if not cursos:
-        print("No hay notas para calcular un promedio")
+        print("No hay notas para calcular un promedio.")
         return
     
     suma_notas = 0
@@ -148,9 +148,9 @@ def calcular_promedio():
 def contar_cursos():
     #funcion para contar cursos aprobados y reprobados
 
-    print("\n6. CUROS APROBADOS Y REPROBADOS")
+    print("\n6. CURSOS APROBADOS Y REPROBADOS")
     if not cursos:
-        print("No hay cursos registrados")
+        print("No hay cursos registrados.")
         return
     aprobados = 0
     reprobados = 0
@@ -168,9 +168,9 @@ def contar_cursos():
 def buscar_curso_lineal():
     #funcion para buscar cursos usando busquda lineal
 
-    print("\n7. BUSCAR CURSO POR NOMBRE (BUSQUEDA LINEAL)")
+    print("\n7. BUSCAR CURSO POR NOMBRE (BÚSQUEDA LINEAL)")
     if not cursos:
-        print("No hay cursos registados")
+        print("No hay cursos registados.")
         return
     
     nombre_buscar = input("Ingrese el nombre completo del curso que desea buscar: ")
@@ -182,7 +182,7 @@ def buscar_curso_lineal():
             break
     
     if not curso_encontrado:
-        print(f"No se encontro un curso con el nombre '{nombre_buscar}'")
+        print(f"No se encontro un curso con el nombre '{nombre_buscar}'.")
     else:
         print("\nCurso Encontrado")
         mostrar_cursos([curso_encontrado])
@@ -191,7 +191,7 @@ def ordenar_por_nombre():
     #funcion para ordenar los cursos por nombre utilizando el metodo de insercion
     print("\n8. ORDENAR CURSOS POR NOMBRE (A-Z)")
     if not cursos:
-        print("No hay cursos para ordenar")
+        print("No hay cursos para ordenar.")
         return
     copia_cursos = cursos.copy()
     n = len(copia_cursos)
@@ -209,7 +209,7 @@ def ordenar_por_nota():
 
     print("\n9. ORDENAR CURSOS POR NOTA (Mayor a Menor)")
     if not cursos:
-        print("No hay cursos para ordenar")
+        print("No hay cursos para ordenar.")
         return
     
     copia_cursos = cursos.copy()
@@ -225,9 +225,9 @@ def ordenar_por_nota():
 def buscar_curso_binaria():
     #Funcion para buscar curos utilizando la busqueda binaria
 
-    print("\n10. BUSCAR CURSO POR NOMBRE")
+    print("\n10. BUSCAR CURSO POR NOMBRE (BÚSQUEDA BINARIA)")
     if not cursos:
-        print("No hay cursos en los cuales buscar")
+        print("No hay cursos en los cuales buscar.")
         return
     
     #Crear y ordenar por nombre una copia de la lista
@@ -251,7 +251,7 @@ def buscar_curso_binaria():
             curso_encontrado = lista_ordenada[medio]
             break
     if not curso_encontrado:
-        print(f"No se encontro un curso con el nombre '{nombre_buscar}'")
+        print(f"No se encontró un curso con el nombre '{nombre_buscar}'.")
     else:
         print("\nCurso encontrado!")
         mostrar_cursos([curso_encontrado])
@@ -260,73 +260,73 @@ def solicitudes_revision():
     #funcion para crear solicitudes para revision de cursos
 
     while True:
-        print("\n11. SOLICITUDES DE REVISION")
-        print("1. Agregar solicitud para revision")
-        print("2. Procesar siguientes solicitud")
+        print("\n11. SOLICITUDES DE REVISIÓN")
+        print("1. Agregar solicitud para revisión")
+        print("2. Procesar siguiente solicitud")
         print("3. Ver solicitudes pendientes")
-        print("4. Volver al menu principal")
+        print("4. Volver al menú principal")
 
-        opcion_cola = input("Seleccione una opcion de la cola: ")
+        opcion_cola = input("Seleccione una opción de la cola: ")
 
         if opcion_cola == '1':
-            nombre_curso = input("Ingrese el nombre del curso para revision: ")
+            nombre_curso = input("Ingrese el nombre del curso para revisión: ")
             if nombre_curso.strip():
                 cola_revision.append(nombre_curso)
-                print(f"Solicitud para '{nombre_curso}' agregada a la cola")
+                print(f"Solicitud para '{nombre_curso}' agregada a la cola.")
             else:
-                print("El nombre del curso no puede estar vacio")
+                print("El nombre del curso no puede estar vacío.")
         
         elif opcion_cola == '2':
             if not cola_revision:
-                print("No hay solicitudes de revision pendientes")
+                print("No hay solicitudes de revisión pendientes.")
             else:
                 curso_procesado = cola_revision.pop(0)
-                print(f"\nProcesando solicitud de revision para: '{curso_procesado}'")
-                print("Solicitud procesada y eliminada de la cola")
+                print(f"\nProcesando solicitud de revisión para: '{curso_procesado}'")
+                print("Solicitud procesada y eliminada de la cola.")
 
         elif opcion_cola == '3':
             if not cola_revision:
-                print("\nLa cola de revision esta vacia")
+                print("\nLa cola de revisión esta vacía.")
             else:
-                print("\nSolicitudes Pendientes ")
+                print("\nSolicitudes Pendientes: ")
                 for i, curso in enumerate(cola_revision):
                     print(f"{i + 1}. {curso}")
 
         elif opcion_cola == '4':
             break
         else:
-            print("Opcion no valida, intente de nuevo")
+            print("Opción no válida. Intente de nuevo.")
 
 def historial_cambios():
     #funcion utilizada para mostrar el historial de cambios (LIFO)
-    print("\n 12. HISTORIAL DE CAMBIOS")
+    print("\n12. HISTORIAL DE CAMBIOS")
     if not lista_historial:
-        print("No hay cambios registrados")
+        print("No hay cambios registrados.")
         return
     
-    print("MOstrando cambios del mas reciente al mas antiguo")
+    print("Mostrando cambios del más reciente al más antiguo: ")
 
     for cambio in reversed(lista_historial):
         print(f"- {cambio}")
 
 #Menu
 while True:
-    print("\nSISTEMA DE GESTION ACADEMICA")
+    print("\nSISTEMA DE GESTIÓN ACADÉMICA")
     print("1. Agregar nuevo curso")
     print("2. Ver todos los cursos")
     print("3. Actualizar nota")
     print("4. Eliminar curso")
     print("5. Calcular promedio general")
     print("6. Cursos aprobados y reprobados")
-    print("7. Buscar curso por nombre (Busqueda Lineal)")
+    print("7. Buscar curso por nombre (Búsqueda Lineal)")
     print("8. Ordenar por nombre")
     print("9. Ordenar por nota")
-    print("10. Buscar curso por nombre (Busqueda Binaria)")
-    print("11. Cola de solicitudes de revision")
+    print("10. Buscar curso por nombre (Búsqueda Binaria)")
+    print("11. Cola de solicitudes de revisión")
     print("12. Historial de cambios")
     print("13. Salir del sistema")
 
-    opcion = input("Seleccione una opcion: ")
+    opcion = input("Seleccione una opción: ")
 
     if opcion == '1':
         registrar_curso() #Llamamos funcion para agregar cursos nuevos
@@ -365,7 +365,7 @@ while True:
         historial_cambios() #Llamamos funcion para mostrar los cambios realizados en el gestor de notas
         
     elif opcion == '13':
-        print("\nGracias por usar el Gestor de Notas Academicas")
+        print("\nGracias por usar el Gestor de Notas Académicas")
         break
     else:
-        print("\nOpcion invalida, intente de nuevo.")
+        print("\nOpción inválida, intente de nuevo.")
